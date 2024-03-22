@@ -1,0 +1,633 @@
+
+:root {
+  --header-background: rgb(31, 129, 103);
+  --nav-background: rgba(84, 214, 180, 1.0);
+  --font-familycontent: 'Kaushan Script';
+  --font-familyheading: 'Poppins', sans-serif;
+  --articlebox2color: #f0f4f6;
+  --articlebox3color: #eed6f1;
+  --articlebox4color: #d8d9da;
+  --articlebox1color: #dff8ff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+
+body {
+  height: 100%;
+  margin: 0;
+  background-color: #000;
+  /* padding-left: 1em;
+    padding-right: 1em; */
+}
+
+h1,
+h2,
+h3,
+h4,
+li {
+  font-family: var(--font-familyheading);
+}
+
+p {
+  font-family: var(--font-familycontent);
+}
+a{
+  text-decoration: none;
+}
+ul {
+  list-style-type: none;
+}
+.navoff {
+  /* when the nav item is selected then it will become bold will not be clickable ther is no underline aswell*/
+  font-weight: bold;
+  color: #1B263B;
+  text-align: center;
+  margin: 1px;
+  width: 100px;
+}
+
+/* header */
+header {
+  list-style: none;
+  /* background-color: var(--header-background); */
+  background: white;
+  /* Change the background color to a shade of blue */
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+
+  z-index: 999;
+  height: 70px;
+  width: 100%;
+  text-align: center;
+  /* justify-content: center; */
+  position: sticky;
+  top: 0;
+  padding: 5px;
+  height: 110px;
+  border-bottom: 1px solid rgba(227, 235, 238, 0.5);
+}
+
+/* navigation bar */
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 8vh;
+  background-color: var(--nav-background);
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.pages li a.active {
+  font-weight: bold;
+}
+
+
+.logo {
+  color: rgb(226, 226, 226);
+  letter-spacing: 5px;
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
+.pages {
+  display: flex;
+  /* background-color: red; */
+  justify-content: space-around;
+  width: 60%;
+}
+
+.pages a {
+  color: rgb(226, 226, 226);
+  text-decoration: none;
+  letter-spacing: 3px;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.burger {
+  display: none;
+  cursor: pointer;
+}
+
+.burger div {
+  width: 25px;
+  height: 3px;
+  background-color: rgb(226, 226, 226);
+  border-radius: 2px;
+  margin: 5px;
+  transition: all 0.3s ease;
+}
+
+
+
+
+/*Banner */
+
+#banner {
+  background: linear-gradient(rgba(6, 180, 192, 0.479), #3d97ce), url("../Image/banner_workout.JPG");
+  background-size: cover;
+  background-position: center center;
+  height: 80vh;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+
+
+
+.bannertext {
+  text-align: center;
+  color: #fff;
+  padding-top: 80px;
+  
+}
+
+#banner h1{
+  font-size: 100px;
+
+}
+
+.bannertext p {
+  /* font-size: 100px; */
+  font-family: var(--font-family1content);
+}
+.bannertext p i{
+  font-size: 50px;
+}
+
+
+
+
+
+
+
+.card-container{
+  display: flex;
+  /* align-items: center; */
+  /* flex-basis: 50%; */
+  
+  justify-content: center;
+}
+
+
+
+
+.cardsdiv {
+  color: white;
+  background-image: url(../dumbbell.jpg);
+  background-size: cover;
+  background-position: center;
+  padding: 10rem 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 10px;
+  /* justify-content: space-between; */
+  
+
+  /* width:calc( 100% + 1.5rem ); */
+
+  max-width: 45ch;
+  /*35 character wide ..changes with font*/
+  border-radius: 1rem;
+  /* border: solid 2px red; */
+  overflow: hidden;
+
+  /*Hide the overflowing content from the dic container ..in this case the text*/
+
+
+  transition: transform 500ms ease-in-out;
+
+}
+
+.cardsdiv:hover {
+  transform: scale(1.01);
+
+}
+
+
+.cardsdiv-content {
+
+  --padding: 1.5rem;
+
+  padding: var(--padding);
+  background: linear-gradient(hsl(0 0% 0%/.0),
+      /* hsla(0, 78%, 40%, 0), */
+      /* hsla(0, 78%, 40%, .20) 30%,        */
+      hsl(0 0% 0%/.2) 30%,
+      /* hsla(0, 78%, 40%, .20) 30%, */
+      hsl(0 0% 0%/0.7));
+  /* hsla(0, 78%, 40%, .80); */
+
+  /* transform: translateY(60%); */
+  /*can do this to 100% to show prep rimes etc for meals and workout plans */
+  /* transition: transform 500ms ease; */
+  border-radius: 1em;
+  /* opacity: 60%; */
+
+
+  /* make the content unfold down word so y transition */
+
+}
+
+.cardsdiv-content>*:not(.cardsdiv h3) {
+  opacity: 0;
+  transition: opacity 500ms linear;
+
+  /*will make sure only the title is shown and everything else will roll in when hovered*/
+}
+
+.cardsdiv:hover .cardsdiv-content>* {
+  opacity: 1;
+}
+
+/* what happen to card content when card is hovered */
+.cardsdiv:hover .cardsdiv-content {
+  transform: translateY(0%);
+}
+
+.cardsdiv h3 {
+  position: relative;
+  /*make this the containing block*/
+  
+  /* outline: 1px solid red; */
+  /* margin-bottom: 0; */
+}
+
+
+.cardsdiv h3::after {
+  content: "";
+  position: absolute;
+  height: 3px;
+  /* background: red; */
+  left: calc(var(--padding) * -1);
+  bottom: -2px;
+
+  /*adjust this if text is touvhing the*/
+  width: calc(100% + var(--padding));
+  background: salmon;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 500ms ease-out;
+}
+
+.cardsdiv:hover h3::after {
+  transform: scaleX(1);
+}
+
+
+
+.buttons {
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: none;
+  color: black;
+  background-color: white;
+  padding: 0.5em 1.25em;
+  border-radius: .25rem;
+
+}
+
+.buttons:hover,
+.bottons:focus {
+  background-color: wheat;
+}
+
+
+
+.front-page-container {
+  background-color: gray;
+  padding: 20px;
+  text-align: center;
+}
+
+.container-label {
+  font-size: 24px;
+  color: wheat;
+  margin-bottom: 10px;
+}
+
+
+.cardsdiv-5{
+  background-image: url("../Image/beginlifter.jpg");
+}
+.cardsdiv-6{
+  background-image: url("../Image/advanced.JPG");
+}
+.cardsdiv-7{
+  background-image: url("../Image/stretch.JPG");
+}
+
+
+
+
+
+
+ 
+#section1{
+  display: block;
+  margin: 0;
+  max-width: 100%;
+}
+
+
+footer {
+  padding:10px;
+  margin: 0;
+  width: 100%;
+}
+
+.container1 {
+  max-width: 100%;
+  
+}
+
+.row {
+  justify-content: space-between;
+}
+
+.col {
+  flex-basis: 30%;
+  text-align: left;
+}
+
+.responsive {
+  border: 2px solid black;
+  display: flex;
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+p,
+  .social-icons {
+    margin-bottom: 10px;
+  }
+  
+  .social-icons a {
+    color: white;
+    margin-right: 10px;
+  }
+  
+  .social-icons i {
+    font-size: 20px;
+  }
+  
+  
+  .bottom-bar {
+    background-color: #222;
+    padding: 0;
+    text-align: center;
+  }
+  
+  .bottom-bar p {
+    margin: 0;
+    color: #fff;
+  }
+
+  .col {
+    flex-basis: 50%;
+  }
+ 
+/**/
+.responsive{
+  display: flex;
+}
+.responsive-flex{
+  display: flex;
+  justify-content: center;  
+
+}
+
+.responsive img{
+  border-radius: 100px;
+  justify-content: center;
+}
+.responsive p{
+  text-align: left;
+  /* border: solid red; */
+  padding: 20px;
+}
+
+
+
+
+.front-page-container1 {
+  margin-top: 10px;
+  background: linear-gradient(#3d97ce, rgba(6, 180, 192, 0.479));
+  width: 100%;
+  
+  
+
+padding: 20px;
+text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width:768px) {
+  body {
+    overflow-x: hidden;
+  }
+  nav {
+    border-bottom-right-radius: 0;
+  }
+  .pages {
+    position: absolute;
+    right: 0px;
+    height: 92vh;
+    top: 8vh;
+    background-color: var(--nav-background);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    transform: translateX(100%);
+    transition: transform 0.5s ease-in;
+  }
+  .pages li {
+    opacity: 0;
+  }
+
+  .burger {
+    display: block;
+  }
+}
+
+.nav-active {
+  transform: translateX(0%);
+}
+
+
+/* building animation */
+/* Followed a tutorial to achieve this */
+@keyframes navLinkFade {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+.toggle .line1 {
+  transform: rotate(45deg) translate(5px, 6px);
+}
+
+.toggle .line2 {
+  opacity: 0;
+}
+
+.toggle .line3 {
+  transform: rotate(-45deg) translate(5px, -6px);
+}
+
+
+#banner {
+      padding-top: 150px;
+    
+}
+
+.bannertext h1 {
+      font-size: 50px;
+  }
+
+.bannertext p {
+      font-size: 16px;
+  }
+
+
+/*main container for about us article*/
+
+
+/**Footer*/ 
+footer {
+  background-color: #000;
+  color: #fff;
+  padding: 30px 0;
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.col {
+  flex-basis: 100%;
+  padding: 10px;
+  text-align: center;
+}
+
+h3 {
+  margin-bottom: 20px;
+}
+
+
+p,
+.social-icons {
+  margin-bottom: 10px;
+}
+
+.social-icons a {
+  color: white;
+  margin-right: 10px;
+}
+
+.social-icons i {
+  font-size: 20px;
+}
+
+
+.bottom-bar {
+  background-color: #222;
+  padding: 10px 0;
+  text-align: center;
+}
+
+.bottom-bar p {
+  margin: 0;
+  color: #fff;
+}
+
+.col {
+  flex-basis: 50%;
+}
+
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .card-container{
+
+      /* align-items: center; */
+      flex-basis: 50%;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .cardsdiv{
+      /* justify-content: center; */
+      /* align-items: center; */
+      max-width: 95%;
+      margin: 10px;
+      /* padding-left: 15px; */
+      
+    
+    }
+    
+    .cardsdiv-content{
+      /* justify-content: center; */
+      align-items: center;
+      max-width: 100%;
+      /* padding-left: 20px; */
+      height: 500px;
+    }
+    
+      .col {
+        flex-basis: 50%;
+      }
+    }       
+
+
+
+
+
+/*strictly mobile*/
+@media screen and (max-width: 481px) {
+  .front-page-container {
+    border-radius: 10px;
+  }
+
+  .card-container {
+    all: unset;
+    /* display: flex; */
+    /* flex-basis: 50%; */
+    max-width: 95%;
+    margin: 10px;
+
+   
+  }
+ 
+    }
+
